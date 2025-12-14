@@ -6,7 +6,7 @@ st.set_page_config(page_title="SOC Demo", layout="wide")
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("insights_events.csv", parse_dates=["timestamp"])
+    df = pd.read_csv("events.csv", parse_dates=["timestamp"])
     df["date"] = df["timestamp"].dt.date
     return df
 
