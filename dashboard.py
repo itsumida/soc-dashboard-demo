@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-st.set_page_config(page_title="Promon Insight – SOC Demo", layout="wide")
+st.set_page_config(page_title="SOC Demo", layout="wide")
 
 @st.cache_data
 def load_data():
@@ -52,13 +52,12 @@ df = load_data()
 df["risk_score"] = df.apply(lambda row: calculate_risk_score(row["event"], row["country"], row["timestamp"]), axis=1)
 df["risk_level"] = df["risk_score"].apply(get_risk_level)
 
-st.title("Promon Insight - MOCK SOC Dashboard")
+st.title("MOCK SOC Dashboard")
 
 with st.expander("What is this dashboard?", expanded=True):
     st.markdown(
         """
-        This mock dashboard demonstrates how Promon Insight–style telemetry can be used by a SOC
-        to triage mobile threat signals quickly. It summarizes events, trends, and simple alert rules.
+        It summarizes events, trends, and simple alert rules.
 
         Events shown:
         - `root_detected`: Device appears rooted/jailbroken
